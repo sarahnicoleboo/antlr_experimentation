@@ -9,6 +9,9 @@ import antlr.ExprParser;
 import antlr.ExprLexer;
 import expression.Program;
 import java.io.IOException;
+import java.util.List;
+import java.util.ArrayList;
+import expression.*;
 
 public class ExpressionApp {
 	
@@ -24,6 +27,14 @@ public class ExpressionApp {
 			ParseTree antlrTree = parser.prog();
 			//actually don't need to save the result of the above but leaving this for reference.
 			Program prog = parser.program;
+			
+			
+			//trying stuff out below:
+			List<Expression> expressions = new ArrayList<>();
+			expressions = prog.expressions;
+			for (Expression e: expressions) {
+				System.out.println(e.toString());
+			}
 		}
 	}
 	

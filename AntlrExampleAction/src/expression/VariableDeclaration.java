@@ -10,4 +10,8 @@ public class VariableDeclaration extends Expression {
 		this.type = type;
 		this.value = value;
 	}
+	
+	public String toString() {
+		return (id + " " + type + " " + value);
+	}
 }
