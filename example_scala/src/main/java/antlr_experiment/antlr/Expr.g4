@@ -1,7 +1,7 @@
 grammar Expr;
 
 @header {
-	package antlr;
+	package antlr_experiment.antlr;
 	//import org.antlr.v4.runtime.*;
 	import java.io.*;
 	import java.util.*;
@@ -9,20 +9,20 @@ grammar Expr;
 	import scala.collection.*;
 	//import static scala.collection.JavaConversions.asJavaCollection;
 	//model classes
-	import ast.*;
 }
 
 @members {
-	public Program program;
+	public ProgramBuilder program;
 	//public Program(new ArrayList<>()) program;
 	//List<Exp> exps = new ArrayList<Exp>();
 	//public Program program;
 }
 
 /* start symbol */
-prog returns [Program p]
+prog returns [ProgramBuilder p]
 @init{
-	$p = new Program(new ArrayList<>());
+	//$p = new Program();
+	$p = new ProgramBuilder();
 	//$p = new expression.Program();
 	program = $p;
 }
@@ -38,7 +38,7 @@ prog returns [Program p]
 	;
 
 decl returns [Exp d]
-	: name=ID ':' type=TYPE '=' val=ID {
+	: name=ID ':' type=TYPE '=' val=NUM {
 //original:
 //decl returns [Expression d]
 	//: name=ID ':' type=INT_TYPE '=' val=NUM {
@@ -51,6 +51,7 @@ decl returns [Exp d]
 		} */
 		//currently only ints for simplicity
 		int exp = $val.int;
+		Exp exp = $val.
 		$d = new VariableDeclarationExp(var, finalType, exp);
 		//original:
 		/*String id = $name.text;

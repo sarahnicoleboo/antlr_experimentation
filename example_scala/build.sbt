@@ -2,6 +2,8 @@
 // The simplest possible sbt build file is just one line:
 
 scalaVersion := "2.13.8"
+
+libraryDependencies += "org.antlr" % "antlr4-runtime" % "4.11.1"
 // That is, to create a valid sbt build, all you've got to do is define the
 // version of Scala you'd like your project to use.
 

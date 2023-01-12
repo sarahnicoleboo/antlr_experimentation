@@ -14,11 +14,6 @@ public class Program {
 		expressions.add(e);
 	}
 	
-/*	public String toString() {
-		for (Expression e: expressions) {
-			return e.toString();
-		}
-	}
-*/	
+
 	//hashCode, equals, and toString
 }

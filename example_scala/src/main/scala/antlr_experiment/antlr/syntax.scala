@@ -1,3 +1,6 @@
+package antlr_experiment.antlr
+
+import scala.collection.mutable.Buffer
 //ast sturucture
 
 //types
@@ -21,8 +24,12 @@ case class VariableDeclarationExp(name: Variable, theType: Type, exp: Int) exten
 //case class VariableDeclarationExp(name: Variable, theType: Type, exp: Exp) extends Exp
 
 //program
-case class Program(var exps: Seq[Exp]) {
-	def addExp(exp: Exp) {
-		exps :+ exp
+case class Program(exps: Seq[Exp])
+
+class ProgramBuilder {
+	val buffer: Buffer[Exp] = Buffer()
+	def addExp(exp: Exp): Unit = {
+		buffer += exp
 	}
+	def toProgram(): Program = Program(buffer.toSeq)
 }
